@@ -1,0 +1,52 @@
+<p>
+    <%= form.label :site %><br />
+    <%= collection_select(:article, :site_id, @sites, :id, :to_s) %>
+  </p>
+  <p>
+    <%= form.label :title %><br />
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :abstract %><br />
+    <%= form.text_area :abstract %>
+  </p>
+  <p>
+    <%= form.label :full_text %><br />
+    <%= form.text_area :full_text %>
+  </p>
+  <p>
+    <%= form.label :published %><br />
+    <%= form.datetime_select :published %>
+  </p>
+  <p>
+    <%= form.label :url %><br />
+    <%= form.text_field :url %>
+  </p>
+  <p>
+    <%= form.label :placename %><br />
+    <%= form.text_field :placename %>
+  </p>
+    <p>
+    <%= form.label :country %><br />
+    <%= form.text_field :country %>
+  </p>
+   <p>
+    <%= form.label :latitude %><br />
+    <%= form.text_field :latitude %>
+  </p>
+     <p>
+    <%= form.label :longitude %><br />
+    <%= form.text_field :longitude %>
+  </p>
+   <p>
+    <%= form.label :zip %><br />
+    <%= form.text_field :zip %>
+  </p>  
+  <p>
+    <%= form.label :location_list %><br />
+    <%= form.text_field :location_list %>
+  </p>
+  <p>
+    <%= form.label :topic_list %><br />
+    <%= form.text_field :topic_list %>
+  </p>

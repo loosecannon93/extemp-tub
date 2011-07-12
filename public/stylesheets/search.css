@@ -1,0 +1,43 @@
+/* 
+    Document   : search.css
+    Created on : May 9, 2011, 5:49:26 PM
+    Author     : cannon
+    Description:
+        styles for the search interface
+*/
+body.new_search {
+    background-color: #00aa00;
+    background-image:url("/images/lhsextemp.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+    /*margin-top: 610px;*/
+}
+input.new_search {
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    width: 25em;
+    position: relative;
+    top: 16em;
+}
+img#search_button{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:auto;
+    margin-bottom:auto;
+    position:relative;
+    top:17em;
+
+    
+}
+
+img#logo{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    position:relative;
+    top:-1em;
+}
+
+

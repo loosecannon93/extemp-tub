@@ -1,0 +1,21 @@
+class Article < ActiveRecord::Base
+belongs_to :site
+validates_uniqueness_of :docid
+  def self.per_page
+    10
+  end
+
+
+  define_index do
+    # fields
+    indexes title, :sortable => true
+    indexes abstract
+    indexes full_text
+    indexes url
+    indexes placename, :sortable => true
+    
+    # attributes
+    has site_id, created_at, updated_at, published, zip, latitude, longitude, country
+  end
+end
+  

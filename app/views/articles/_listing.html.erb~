@@ -1,0 +1,11 @@
+  <li class='search-result'>
+  <h4 class='search-result-heading'> <%=link_to listing.title, listing %></h4>
+  
+  <div class='search-result-details'>
+    <span class='placename'><%=h listing.placename.upcase %></span> 
+    <span class='date'><%=h time_ago_in_words(listing.published.to_date) %></span> ... 
+      <%=h listing.abstract %> ... <%= listing.full_text[0,500]%>... 
+    <span class='site'>from  <%=h listing.site %> </span>
+  </div>
+  </li>
+  <hr/>

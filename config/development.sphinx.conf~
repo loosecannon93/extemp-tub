@@ -1,0 +1,53 @@
+indexer
+{
+}
+
+searchd
+{
+  address = 127.0.0.1
+  port = 9312
+  log = /home/cannon/src/extemp/log/searchd.log
+  query_log = /home/cannon/src/extemp/log/searchd.query.log
+  pid_file = /home/cannon/src/extemp/log/searchd.development.pid
+}
+
+source article_core_0
+{
+  type = mysql
+  sql_host = localhost
+  sql_user = root
+  sql_pass = 
+  sql_db = extemp_development
+  sql_sock = /var/run/mysqld/mysqld.sock
+  sql_query_pre = SET NAMES utf8
+  sql_query_pre = SET TIME_ZONE = '+0:00'
+  sql_query = SELECT SQL_NO_CACHE `articles`.`id` * 1 + 0 AS `id` , `articles`.`title` AS `title`, `articles`.`abstract` AS `abstract`, `articles`.`full_text` AS `full_text`, `articles`.`url` AS `url`, `articles`.`placename` AS `placename`, `articles`.`id` AS `sphinx_internal_id`, 3448190970 AS `class_crc`, 0 AS `sphinx_deleted`, IFNULL(`articles`.`title`, '') AS `title_sort`, IFNULL(`articles`.`placename`, '') AS `placename_sort`, `articles`.`site_id` AS `site_id`, UNIX_TIMESTAMP(`articles`.`created_at`) AS `created_at`, UNIX_TIMESTAMP(`articles`.`updated_at`) AS `updated_at`, UNIX_TIMESTAMP(`articles`.`published`) AS `published`, `articles`.`zip` AS `zip`, `articles`.`latitude` AS `latitude`, `articles`.`longitude` AS `longitude`, IFNULL(`articles`.`country`, '') AS `country` FROM `articles`    WHERE `articles`.`id` >= $start AND `articles`.`id` <= $end GROUP BY `articles`.`id`  ORDER BY NULL
+  sql_query_range = SELECT IFNULL(MIN(`id`), 1), IFNULL(MAX(`id`), 1) FROM `articles` 
+  sql_attr_uint = sphinx_internal_id
+  sql_attr_uint = class_crc
+  sql_attr_uint = sphinx_deleted
+  sql_attr_uint = site_id
+  sql_attr_uint = zip
+  sql_attr_timestamp = created_at
+  sql_attr_timestamp = updated_at
+  sql_attr_timestamp = published
+  sql_attr_str2ordinal = title_sort
+  sql_attr_str2ordinal = placename_sort
+  sql_attr_str2ordinal = country
+  sql_attr_float = latitude
+  sql_attr_float = longitude
+  sql_query_info = SELECT * FROM `articles` WHERE `id` = (($id - 0) / 1)
+}
+
+index article_core
+{
+  source = article_core_0
+  path = /home/cannon/src/extemp/db/sphinx/development/article_core
+  charset_type = utf-8
+}
+
+index article
+{
+  type = distributed
+  local = article_core
+}

@@ -1,0 +1,11 @@
+I'm writing an application to build an ofline archive of news, for a Hugh School Speech Event called Extemperaneous Speaking.
+
+ You have 30 min to write an impromptu speech, usually on current events.
+
+Generally this requires bring large plastic tubs full of printed out articles, which must be catagorized and filed.
+
+Since you can bring a laptop but cant use internet, im building a web front end in ruby on rails, to a Sphinx fulltext  indexed MySQL database of downloaded news articles.
+
+I started with MSNBC, since they have no rate limits, and you dont need a key, and downloaded 30,000 articles, but i want to diverseify my sources.
+
+Everything is purly academic, i am a High School student. And only a few of my classmates and I will be using this.

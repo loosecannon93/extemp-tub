@@ -1,0 +1,7 @@
+development:
+  morphology: stem_en 
+  mem_limit: 128M
+
+bin_path: /usr/bin/
+searchd_binary_name: sphinx-searchd
+indexer_binary_name: sphinx-indexer

@@ -1,0 +1,10 @@
+<h1>Listing Articles</h1>
+<%= will_paginate @articles %>
+
+<%=render :partial => 'listing', :collection => @articles %>
+
+</table>
+<%= will_paginate @articles %>
+<br />
+
+<%= link_to 'New article', new_article_path %>

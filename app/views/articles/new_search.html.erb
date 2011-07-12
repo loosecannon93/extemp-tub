@@ -1,0 +1,22 @@
+<% content_for :title do %>
+New Search 
+<%end%>
+<%content_for :head do%>
+  <%=stylesheet_link_tag "search.css" %>
+<%end%>
+
+<!--<h2> Lafayette High Extemp Database </h2>-->
+
+<% form_tag( '/search', :method => :get  , :id => "search" ) do %>
+<!--Search :--><%= text_field :search, :query , :value => "search #{number_with_precision(@count,:precision => 0, :delimiter => ',') } articles (and counting!) ", :class => 'new_search default-value' %>
+<!--<%= link_to 'Advanced', '/search/advanced' %>-->
+<%=image_tag 'searchbutton.png' , :id => 'search_button' , :usemap => "#search_advanced"%>
+<%=image_tag 'shinylogo.png', :id => 'logo'%>
+<map name="search_advanced">
+  <area shape="rect" alt="search" onClick='document.getElementById("search").submit();' coords="0,0,99,33" href="javascript:void(0);" />
+  <area shape="rect" alt="advanced" coords="99,0,213,33" href="/search/advanced" />
+
+</map>
+<%end%>
+
+<!--<h4>Searching through <%=@count%> articles and counting </h4>-->

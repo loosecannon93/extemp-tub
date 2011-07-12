@@ -1,0 +1,16 @@
+<% form_tag( '/search', :method => :get   ) do %>
+Search :
+Any :<%= text_field :query, :any %>
+Title :<%= text_field :query, :title %>
+Abstract :<%= text_field :query, :abstract %>
+Full Text :<%= text_field :query, :full_text%>
+Url :<%= text_field :query, :url %>
+Placename : <%= text_field :query, :query %>
+With Attributes:
+Published Since: <%= date_select(:query, :published , :default => 1.year.ago.to_date) %>
+From source: <%= collection_select(:query, :site_id, @sites, :id, :name, :prompt => 'Any')%>
+In ZIP : <%= text_field :query, :zip %>
+
+
+
+<%end%>

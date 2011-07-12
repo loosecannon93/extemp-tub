@@ -1,0 +1,18 @@
+<h1>Listing Articles</h1>
+<%= will_paginate @articles %>
+<table>
+  <tr>
+    <th>Site</th>
+    <th>Title</th>
+    <th>Abstract</th>
+    <th>Published</th>
+    <th>Url</th>
+    <th>Location</th>
+  </tr>
+<%=render :partial => 'listing', :collection => @articles %>
+
+</table>
+<%= will_paginate @articles %>
+<br />
+
+<%= link_to 'New article', new_article_path %>

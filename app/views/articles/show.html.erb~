@@ -1,0 +1,43 @@
+<p>
+  <b>Site:</b>
+  <%=h @article.site %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @article.title %>
+</p>
+
+<p>
+  <b>Abstract:</b>
+  <%=h @article.abstract %>
+</p>
+
+<p>
+  <b>Full text:</b>
+  <%= @article.full_text %>
+</p>
+
+<p>
+  <b>Published:</b>
+  <%=h @article.published %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @article.url %>
+</p>
+
+<p>
+  <h4>Location:</h4>
+  Place: <%=h @article.placename %><br/>
+Country: <%=h @article.country %><br/>
+ZIP:   <%=h @article.zip %><br/>
+Lat:  <%=h @article.latitude %><br/>
+Long:  <%=h @article.longitude %><br/>
+</p>
+
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>
+<%= link_to 'Destroy', listing, :confirm => 'Are you sure?', :method => :delete %>

@@ -1,0 +1,23 @@
+<%unless @query.nil?%>
+<li class='search-result'>
+  <h4 class='search-result-heading'> <%=link_to listing.title, listing %></h4>
+  <div class='search-result-details'>
+    <span class='placename'><%=h listing.placename.upcase if listing.placename %></span> 
+    <span class='date'><%= time_ago_in_words(listing.published.to_date) %> ago (<%=listing.published.to_date.to_s(:long) %>)</span> ...
+      <%=highlight(listing.abstract, @query) %> ... <%= highlight(listing.full_text[0,500], @query)%>...
+    <span class='site'>from  <%=h listing.site %> </span>
+  </div>
+  </li>
+  <hr/>
+<%else%>
+  <li class='search-result'>
+  <h4 class='search-result-heading'> <%=link_to listing.title, listing %></h4>
+  <div class='search-result-details'>
+    <span class='placename'><%=h listing.placename.upcase if listing.placename %></span>
+    <span class='date'><%= time_ago_in_words(listing.published.to_date) %> ago (<%=listing.published.to_date.to_s(:long) %>)</span> ...
+      <%=h listing.abstract %> ... <%= listing.full_text[0,500]%>...
+    <span class='site'>from  <%=h listing.site %> </span>
+  </div>
+  </li>
+  <hr/>
+<%end%>

@@ -1,0 +1,18 @@
+<% form_tag( '/advanced', :method => :get   ) do %>
+Search :<br/>
+Any :<%= text_field :query, :base %><br/>
+Title :<%= text_field :conditions, :title %><br/>
+Abstract :<%= text_field :conditions, :abstract %><br/>
+Full Text :<%= text_field :conditions, :full_text%><br/>
+Url :<%= text_field :conditions, :url %><br/>
+Placename : <%= text_field :conditions, :placename %><br/>
+With Attributes:<br/>
+Published Since: <%# select_date(:query, :published , :default => 1.year.ago.to_date) %><br/>
+From source: <%# collection_select(:with, :site_id, @sites, :id, :name, :prompt => 'Any')%><br/>
+In ZIP : <%= text_field :with, :zip %><br/>
+Within <%= text_field :query, :lat_delta %> degrees of <%= text_field :query, :lat %> Latitude<br/>
+Within <%= text_field :query, :long_delta %> degrees of <%= text_field :query, :long %> Longitude<br/>
+With Country Code :<%= text_field :with, :country %> <br/>
+<br/>
+<%= submit_tag 'Search' %>
+<%end%>
