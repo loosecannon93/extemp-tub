@@ -1,9 +1,8 @@
-<h1>Listing Articles</h1>
+<%content_for :header do %><h1>Listing Articles</h1><%end%>
 <%= will_paginate @articles %>
 
 <%=render :partial => 'listing', :collection => @articles %>
-
-</table>
+<br/>
 <%= will_paginate @articles %>
 <br />
 
