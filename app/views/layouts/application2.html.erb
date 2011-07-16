@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title> Timetracker <%=yield :title %></title>
+  
+  <%= yield :head %>
+
+  <%=stylesheet_link_tag 'application', :media => 'all'%>
+  <%=stylesheet_link_tag 'print', :media => 'print'%>
+  </head>
+<body>
+  <table id="layout"style="width:100%;height:100%;border-style:none;">
+    <tr id="header" class="header">
+      <td id="logo"class="sidebar"><a href="/"><div class="noprint" style="width:300px;height:200px;"></div><%= image_tag 'logo.jpg', :border=>0, :width=>300, :height => 200, :class=> 'logo sidebar_item' %></a></td>
+      <td id="title" class="main-area"> <%=  yield :header %> </td>
+    </tr >
+    <tr class="bottom-part">
+      <td class="sidebar noprint">
+        <%=yield :sidebar%>
+  <% if @current_user %>
+  <ul id="nav" class="sidebar_item noprint">
+    <h5 class="sidebar_item"> Navigation </h5>
+    <li  ><%= link_to 'Home', home_url, :class => 'sidebar_link' %></li>
+    <li><%= link_to 'Entries', entries_path , :class => 'sidebar_link'%></li>
+    <li><%= link_to 'Personal Report', reports_path , :class => 'sidebar_link'%></li>
+    <li><%= link_to 'My Account', "/account" , :class => 'sidebar_link'%></li>
+    <% if @current_user.full_time? %>
+    <li><%= link_to 'Vacation Request' , new_vacation_approval_path , :class => 'sidebar_link'%></li>
+    <%end%>
+    <% if @current_user.is_reporter_only? %>
+    <h5 class="sidebar_item" >Management</h5>
+      <li><%= link_to 'Reports', new_admin_report_path , :class => 'sidebar_link'%></li>
+     <%end%>
+    <% if @current_user.is_manager? %>
+    <h5 class="sidebar_item" >Management</h5>
+      <li><%= link_to 'Approvals', admin_approval_index_path, :class => 'sidebar_link' %></li>
+      <li><%= link_to 'Unapprovals', '/admin/approval/unapprovals', :class => 'sidebar_link' %></li>
+      <li><%= link_to 'Reports', new_admin_report_path , :class => 'sidebar_link'%></li>
+      <li><%= link_to 'Clients' , clients_path , :class => 'sidebar_link'%></li>
+      <%= yield :projects_jobs_sidebar %>
+      <li><%= link_to 'Vacation Approvals' , vacation_approvals_path , :class => 'sidebar_link'%></li>
+      <%end%>
+    <% if @current_user.is_admin? %>
+    <h5 class="sidebar_item" >Administration</h5>
+      <li><%= link_to 'Users' , users_path , :class => 'sidebar_link'%></li>
+      <li><%= link_to 'Groups' , groups_path , :class => 'sidebar_link'%></li>
+      
+    <% end %>
+  </ul>
+     
+  
+    <div class='username noprint'><br/> logged in as: <%= @current_user.login %> | [<%= link_to 'Home', home_url%>] | [<%= link_to 'Logout', logout_path%>]
+    <%unless (controller.is_a?(UserSessionsController))%>
+    <br/> viewing: desktop | switch to <%= link_to "mobile", :controller => "home", :action => "set_layout", :mobile => "1" %>
+    <%end%>
+  </div>
+  <% end%>
+</td>
+<td id="content" class="main-area">
+<p class="noprint" style="color: green"><%= flash[:notice] %></p>
+<p class="noprint" style="color: red"><%= flash[:error] %></p>
+
+<%= yield(:body)%>
+</td>
+      </tr>
+  </table>
+</body>
+</html>
