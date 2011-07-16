@@ -1,5 +1,8 @@
 class Article < ActiveRecord::Base
 belongs_to :site
+has_many :readings
+has_many :readers, :class_name => User, :through => :readings
+
 validates_uniqueness_of :docid
   cattr_reader :per_page
   @@per_page = 10
