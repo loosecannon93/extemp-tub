@@ -1,4 +1,6 @@
-<h1>Login</h1>
+<%content_for :header do %>
+<h1>Extemp Tub Login</h1>
+<%end %>
 
 <%= form_for @user_session, :url => user_session_path do |f| %>
   <%= f.error_messages %>
