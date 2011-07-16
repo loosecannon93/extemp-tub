@@ -9,6 +9,8 @@ validates_uniqueness_of :docid
   acts_as_taggable
   acts_as_taggable_on :locations,  :topics
 
+  #scope :popular , lambda {|n|}
+
   define_index do
     # fields
     indexes title, :sortable => true
