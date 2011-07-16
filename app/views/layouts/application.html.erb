@@ -1,14 +1,59 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Extemp</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title> LHS Extemp Database <%=yield :title %></title>
+  
+  <%= yield :head %>
+
+  <%=stylesheet_link_tag 'application', :media => 'all'%>
+  <%=stylesheet_link_tag 'print', :media => 'print'%>
+  </head>
 <body>
+  <table id="layout"style="width:100%;height:100%;border-style:none;">
+    <tr id="header" class="header">
+      <td id="logo"class="sidebar"><a href="/"><div class="noprint" style="width:200px;height:200px;"></div>
+      	<%= image_tag 'logo.png', :border=>0, :width=>200, :height => 200, :class=> 'logo sidebar_item' %></a></td>
+      <td id="title" class="main-area"> <%=  yield :header %> </td>
+    </tr >
+    <tr class="bottom-part">
+      <td class="sidebar noprint">
+  <% if @current_user %>
+  <ul id="nav" class="sidebar_item noprint">
+    <h5 class="sidebar_item"> Navigation </h5>
+    <li><%= link_to 'New Search', '/search/new', :class => 'sidebar_link' %></li>
+    <li><%= link_to 'My Account', account_url , :class => 'sidebar_link' %></li>
+    <li><%= link_to 'Users', users_url , :class => 'sidebar_link' %></li> 
+    <h5 class="sidebar_item"> Recent Searches </h5>
+    <%@recent_searches.each do |search|%>
+  	<li>
+ 		<%=link_to "\"#{search.query}\"", "/search?search[query]=#{search.query}", :class => 'recent_search_link'%>
+ 	</li>
+    <%end%>
+    <h5 class="sidebar_item"> Recent Articles </h5>
+    <%@recent_articles.each do |reading|%>
+  	<li>
+ 		<%=link_to truncate(reading.article.title), reading.article, :class => 'recent_article_link'%>
+ 	</li>
+    <%end%>
+      <%=yield :sidebar%>
+  </ul>
+     
+    <div class='username noprint'><br/> logged in as: <%= @current_user.login %> | [<%= link_to 'Logout', logout_path%>]
+    </div>
+  <% end%>
 
-<%= yield %>
+  
+</td>
+<td id="content" class="main-area">
+<p class="noprint" style="color: green"><%= flash[:notice] %></p>
+<p class="noprint" style="color: red"><%= flash[:error] %></p>
 
+<%= yield(:body)%>
+</td>
+      </tr>
+  </table>
 </body>
 </html>
