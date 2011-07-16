@@ -30,9 +30,9 @@
 # end
 source 'http://rubygems.org'
 
- gem 'mysql'
+ gem 'mysql2', '< 0.3'
  gem 'nokogiri'
- gem 'rails', '3.0.9'
+ gem 'rails', '3.0.8'
  gem 'rake' , '0.8.7'
 source 'http://gems.github.com'
 #gem 'mislav-will_paginate', :require => 'will_paginate'
@@ -41,5 +41,6 @@ gem "will_paginate", "~> 3.0.pre2"
 gem 'thinking-sphinx', '2.0.3'
 source 'http://gemcutter.org'
 gem 'acts-as-taggable-on'
-gem 'authlogic','3.0.3'
-
+gem 'authlogic','3.0.2'
+gem 'mongrel', '~> 1.2.0.pre2'
+gem 'settingslogic'
