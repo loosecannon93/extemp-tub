@@ -6,4 +6,5 @@ config/database.yml
 config/api_keys.yml
 config/*.sphinx.conf
 db/sphinx
+.project
 
