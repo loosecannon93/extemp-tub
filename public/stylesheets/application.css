@@ -1,15 +1,197 @@
-/*body {
-  background-image: url("/images/background.png");
-  background-position: left top;
-  background-repeat: no-repeat;
-  color: white;
+/* 
+    Document   : application.css
+    Created on : Oct 28, 2010, 4:45:44 PM
+    Author     : cmatthews
+    Description:
+        base styles for entire app
+*/
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+  margin:8px;
 }
-p, h1, h2,h3,h4,h5,h6, span, div 
-{
-color:white
+h1 {
+	line-height:1em;
 }
-li 
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+.center
 {
-background-color:black;
-color:white;
+margin-left:auto;
+margin-right:auto;
+width:65%;
+}
+
+.logo
+{
+    position:fixed;
+    top:0;
+    left:0;
+     z-index:-1;
+    
+
+    margin-right: 8px;
+    margin-left: 8px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+/*ul.sidebar_item
+{
+    list-style-type:disc;
+
+
+
+    padding-right: 1px;
+    padding-left: 1px;
+    padding-bottom: 1px;
+    padding-top: 1px;   
+    position: relative;
+    left: 25px;
+    margin-right: 1px;
+    margin-left: 1px;
+    margin-bottom: 1px;
+    margin-top: 1px;
 }*/
+ h5.sidebar_item
+ {
+     display:block;
+font-weight:bold;
+color:#FFFFFF;
+background-color:#21b600;
+width:175px;
+text-align:center;
+padding:4px;
+text-decoration:none;
+text-transform:uppercase;
+
+margin:0;
+padding:4px;
+    font-size: 18px;
+}
+.sidebar  
+{
+    width:10%;
+    margin:8px;
+    position:relative;
+
+    
+
+    margin-right: 2px;
+    margin-left: 2px;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.main-area
+{
+    width:90%;
+    
+
+}
+#title
+{
+    width:100%;
+}
+tr.header
+{
+    height:10%;
+}
+tr.bottom-part
+{
+   /*height:85%;*/
+}
+.username
+{
+    position:fixed;
+    bottom:10px;
+   font-variant: small-caps;
+   font-size: 10px;
+}
+hr.short
+{
+
+    width: 100px;
+    position: static;
+    left: 0px;
+}
+
+ul.sidebar_item
+{
+list-style-type:none;
+margin:5px;
+padding:0;
+position:fixed;
+top:215px;
+}
+a:link.sidebar_link,a:visited.sidebar_link
+{
+display:block;
+font-weight:bold;
+color:#FFFFFF;
+background-color:#157a00;
+width:175px;
+text-align:center;
+padding:4px;
+text-decoration:none;
+text-transform:uppercase;
+}
+a:hover.sidebar_link,a:active.sidebar_link
+{
+background-color:#174f0b;
+}
+#layout td 
+{
+	margin:8px;
+	padding:8px;
+}
+	
+a:link.recent_search_link,a:visited.recent_search_link
+{
+display:block;
+font-weight:bold;
+color:#FFFFFF;
+background-color:#157a00;
+width:175px;
+text-align:center;
+padding:4px;
+text-decoration:none;
+text-transform:uppercase;
+}
+a:hover.recent_search_link,a:active.recent_search_link
+{
+background-color:#174f0b;
+}
+
+a:link.recent_article_link,a:visited.recent_article_link
+{
+display:block;
+font-weight:bold;
+font-size:70%;
+color:#FFFFFF;
+background-color:#157a00;
+width:175px;
+text-align:center;
+padding:4px;
+text-decoration:none;
+text-transform:uppercase;
+}
+a:hover.recent_article_link,a:active.recent_article_link
+{
+background-color:#174f0b;
+}
+div.search-result-details
+{
+	width: 600px;
+}
+hr 
+{
+	width:600px;
+	float:left;
+}
