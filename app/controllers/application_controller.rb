@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   helper_method :current_user_session, :current_user
   layout 'application'
-  before_filter :recent_items
+  before_filter :recent_items, :store_location
     private
       def single_access_allowed?
 	      return true
