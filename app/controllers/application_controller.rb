@@ -5,10 +5,11 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   helper_method :current_user_session, :current_user
-
+  layout 'application'
+  before_filter :recent_items
     private
       def single_access_allowed?
-	return true
+	      return true
       end
       def current_user_session
         return @current_user_session if defined?(@current_user_session)
@@ -18,6 +19,12 @@ class ApplicationController < ActionController::Base
       def current_user
         return @current_user if defined?(@current_user)
         @current_user = current_user_session && current_user_session.user
+      end
+      def recent_items
+        if current_user
+          @recent_searches = @current_user.searches.last_n(5)
+          @recent_articles = @current_user.readings.last_n(5)
+        end
       end
       def require_user
         unless current_user
