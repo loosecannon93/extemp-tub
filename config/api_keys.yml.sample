@@ -1,0 +1,12 @@
+#app/config/api_keys.yml
+defaults: &defaults
+  npr: 
+  guardian: 
+development:
+  <<: *defaults
+  
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
