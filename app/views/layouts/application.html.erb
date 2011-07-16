@@ -23,9 +23,10 @@
   <% if @current_user %>
   <ul id="nav" class="sidebar_item noprint">
     <h5 class="sidebar_item"> Navigation </h5>
-    <li><%= link_to 'New Search', '/search/new', :class => 'sidebar_link' %></li>
     <li><%= link_to 'My Account', account_url , :class => 'sidebar_link' %></li>
     <li><%= link_to 'Users', users_url , :class => 'sidebar_link' %></li> 
+    <li><%= link_to 'Sites', sites_url , :class => 'sidebar_link' %></li>
+    <li><%= link_to 'Articles', articles_url , :class => 'sidebar_link' %></li> 
     <h5 class="sidebar_item">Search</h5>
     <% form_tag( '/search', :method => :get  , :id => "search" ) do %>
     <%= text_field :search, :query , :value => "     		Search", :class => 'new_search default-value sidebar_item' %>
