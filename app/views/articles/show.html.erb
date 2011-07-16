@@ -35,16 +35,16 @@ Long:  <%=h @article.longitude %><br/>
 <%=h @article.locations.join ', ' %> ,
 <%=h @article.topics.join ', ' %>
 </p>
-<p> <!-- Was REALLY slo, like 10 second db query, so i had to take it out
+<p> <!-- Was REALLY slo, like 10 second db query, so i had to take it out-->
 <h4>Related Locations: </h4>
-<%# @article.find_related_locations(:limit => 4).each do |art| %>
-<%#= link_to art.title, art %><br/>
-<%#end%>
+<% @article.find_related_locations(:limit => 4).each do |art| %>
+<%= link_to art.title, art %><br/>
+<%end%>
 <h4>Related Topics: </h4>
-<%# @article.find_related_topics(:limit => 6).each do |art| %>
-<%#= link_to art.title, art %><br/>
-<%#end%>
-</p> -->
+<% @article.find_related_topics(:limit => 6).each do |art| %>
+<%= link_to art.title, art %><br/>
+<%end%>
+</p> 
 <p>
   <b>DocID:</b>
   <%=h @article.docid %>
