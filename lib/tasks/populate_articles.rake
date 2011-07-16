@@ -3,6 +3,7 @@
   require 'nokogiri'
 namespace :add_content do 
   task :msnbc => :environment do
+    desc "Fetch Articles From MSNBC ( and sometimes REUTERS)"
   begin
     failed_docs = []
     msnbc_site = Site.find_by_name('MSNBC')
@@ -124,10 +125,6 @@ namespace :add_content do
     
     namespace :npr do
 
-	
-      task :list_topics do 
-      end
-
       def get_articles(topic, location, topics, country, startpage = 0) 
         begin
 	
@@ -183,75 +180,99 @@ namespace :add_content do
       #  end#for
       end #def
       task :afghanistan => :environment do 
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1149, 'Afghanistan', 'International', 'AF')
       end
       task :africa => :environment do 
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1126, 'Africa', 'International', '')
       end #task
       task :asia => :environment do 
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1125, 'Asia', 'International', '')
       end #task
       task :economy => :environment do 
+        desc "Fetch Articles From NPR in this subject area"
        get_articles(1017, '', 'Economy', '')
       end #task
       task :energy => :environment do 
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1131, '', 'Energy', '')
       end #task
       task :education => :environment do 
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1013, '', 'Education', '')
       end #task
       task :enviro => :environment do
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1025, '', 'Environment', '') 
       end #task
       task :europe => :environment do
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1124, 'Europe', 'International', '') 
       end #task    
       task :governing => :environment do
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1123, '', 'Governing', '') 
       end #task   
       task :health => :environment do
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1128, '', 'Health', '') 
       end #task    
       task :healthcare => :environment do
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1027, '', 'Healthcare', '') 
       end #task    
       task :latin_america => :environment do
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1127, 'Latin America', 'International', '') 
       end #task       
       task :national_security => :environment do
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1122, 'United States', 'National Security, Domestic', 'US') 
       end #task    
       task :news => :environment do
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1001, '', 'News', '') 
       end #task  
       task :politics => :environment do
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1014, '', 'Politics', '') 
       end #task 
       task :religion => :environment do
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1016, '', 'Religion', '') 
       end #task   
       task :research_news => :environment do
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1024, '', 'Research News', '') 
       end #task      
       task :science => :environment do
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1007, '', 'Science', '') 
       end #task     
       task :space => :environment do
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1024, '', 'Space', '') 
       end #task               
       task :technology => :environment do
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1019, '', 'Technology', '') 
       end #task             
       task :war_impact => :environment do
+        desc "Fetch Articles From NPR in this subject area"
          get_articles(1078, '', 'The Impact of War', '') 
       end #task       
       task :us => :environment do
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1003, 'United States', 'US News, Domestic, News', 'US') 
       end #task      
       task :world => :environment do
+        desc "Fetch Articles From NPR in this subject area"
         get_articles(1004, 'World', 'World News, International, News', '') 
       end #task      
       task :all => :environment do 
+        desc "Fetch Articles From NPR for all topics "
         get_articles(1149, 'Afghanistan', 'International', 'AF')
         get_articles(1126, 'Africa', 'International', '')
         get_articles(1125, 'Asia', 'International', '')
@@ -289,6 +310,7 @@ namespace :add_content do
         return uri
       end
     task :get => :environment do
+        desc "Fetch Articles From TheGuardian"
   # begin
         guardian = Site.find_by_name 'GUARDIAN'
         startday =( guardian.articles.maximum(:published ) - 1.week).to_date
