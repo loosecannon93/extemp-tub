@@ -1,4 +1,0 @@
-development:
-  morphology: stem_en 
-#  min_prefix_len: 3
-  mem_limit: 128M

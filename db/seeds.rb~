@@ -1,1 +1,0 @@
-Site.create(:name => 'MSNBC', :url => 'http://msnbc.com')

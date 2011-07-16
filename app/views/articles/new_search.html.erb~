@@ -1,4 +1,0 @@
-<% form_tag( '/search', :method => :get   ) do %>
-Search :<%= text_field :search, :query %>
-<%= link_to 'Advanced', '/new_advanced' %>
-<%end%>
