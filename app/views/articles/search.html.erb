@@ -1,12 +1,17 @@
+<%=content_for :header do %>
 <h1>Found <%=@articles.total_entries %> Results for "<%=@query%>"</h1>
 <% form_tag( '/search', :method => :get   ) do %>
 Search : <%= text_field :search, :query, :value => @query %>
 <%end%>
+<%end%>
+
+<%content_for :sidebar do %>
+<%end%>
 <%=render :partial => 'listing', :collection => @articles ,:query => @query %>
 
-</table>
+
 <%= will_paginate @articles %>
-<br />
+
 
 
 
