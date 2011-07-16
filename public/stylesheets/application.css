@@ -195,3 +195,13 @@ hr
 	width:600px;
 	float:left;
 }
+input.sidebar_item
+{
+	width:173px;
+	border: 5px solid black;
+	padding:0;
+	margin:0;
+	display: block;
+	
+}
+
