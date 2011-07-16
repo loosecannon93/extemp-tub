@@ -1,0 +1,54 @@
+/* 
+    Document   : print
+    Created on : Nov 1, 2010, 1:56:56 PM
+    Author     : cmatthews
+    Description:
+        style to print out stuff with
+        hides certian areas etc
+*/
+
+ #nav, .noprint
+{
+display: none;
+}
+html, bdoy
+{
+    margin:0;
+    padding:0;
+}
+/* Ensure the content spans the full width */
+ #content , #header, .print-full-width
+{
+width: 100%; margin: 0; float: none;
+}
+#title
+{
+    width:85%; margin: 0; float: none;
+    position:absolute;
+    left:305px;
+    
+
+}
+
+#logo, .logo
+{
+    width: 15%; margin: 0; float: none;
+    position:relative;
+    top:0;
+    left:0;
+    padding-right:0px;
+    padding-left:0px;
+    z-index:-1;
+    width:300px;
+    height:200px;
+    border:none;
+}
+#layout
+{
+    border-style:none;
+    
+}
+.break-before
+{
+    page-break-before: always;
+}
