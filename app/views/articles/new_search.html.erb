@@ -1,9 +1,17 @@
-<% content_for :title do %>
-New Search 
-<%end%>
-<%content_for :head do%>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>New Search</title>
+  <%= stylesheet_link_tag 'application' %>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%=javascript_include_tag :defaults %>
   <%=stylesheet_link_tag "search.css" %>
-<%end%>
+  
+</head>
+<body class="new_search">
+
+<p style="color: green;position: fixed;top:5px; left:5px;"><%= notice %></p>
+
 
 <!--<h2> Lafayette High Extemp Database </h2>-->
 
@@ -20,3 +28,8 @@ New Search
 <%end%>
 
 <!--<h4>Searching through <%=@count%> articles and counting </h4>-->
+<%= yield %>
+
+</body>
+</html>
+
