@@ -15,8 +15,9 @@ validates_uniqueness_of :docid
     indexes url
     indexes corrections
     indexes placename, :sortable => true
-    indexes locations.name, :as => :locations
-    indexes topics.name, :as => :topics
+    
+   # indexes locations.name, :as => :locations
+   # indexes topics.name, :as => :topics
     indexes tags.name, :as => :tags
     
     # attributes
