@@ -36,6 +36,34 @@
   <b>Current login ip:</b>
   <%=h @user.current_login_ip %>
 </p>
+<h3> Last 20 Searches </h3>
+<table>
+	<tr>
+		<th>Query</th>
+		<th>Date</th>
+	</tr>
+	<%@user.searches.last_n(20).each do |search |%>
+		<tr>
+			<td><%=search.query%></td>
+			<td><%=search.created_at%></td>
+		</tr>
+	<%end%> 
+</table>
+<h3> Last 20 Articles </h3>
+<table>
 
-
+	<tr>
+		<th>Article Title</th>
+		<th>Searched For</th>
+		<th>Date</th>
+	</tr>
+	<%@user.readings.last_n(20).each do |reading |%>
+		<tr>
+			<td><%=reading.article.title %></td> 
+			<td><%="Searched for: "+ reading.search.query if reading.search%></td>
+			<td><%=reading.created_at%></td>
+		</tr>
+			
+	<%end%> 
+</table>
 <%= link_to 'Edit', edit_account_path %>
