@@ -18,7 +18,8 @@ class ArticlesController < ApplicationController
      @query ||= params[:search][:query].to_s
      #@search_options = eval(params[:search_options])
      @articles = Article.search(@query, :page => page , :per_page => per_page)
-
+     @current_user.searches.create(:query => @query)
+  
     respond_to do |format|
       format.html # search.html.erb
       format.xml  { render :xml => @articles }
@@ -29,7 +30,7 @@ class ArticlesController < ApplicationController
     @base = params[:query][:any] || ''
     @conditions = {}
     @conditions[:title]     = params[:conditions][:title] unless params[:conditions][:title].blank?
-    @conditions[:sub_title]     = params[:conditions][:sub_title] unless params[:conditions][:sub_title].blank?
+    @conditions[:sub_title] = params[:conditions][:sub_title] unless params[:conditions][:sub_title].blank?
     @conditions[:abstract]  = params[:conditions][:abstract] unless params[:conditions][:abstract].blank?
     @conditions[:full_text] = params[:conditions][:full_text] unless params[:conditions][:full_text].blank?
     @conditions[:url]       = params[:conditions][:url] unless params[:conditions][:url].blank?
@@ -85,6 +86,7 @@ class ArticlesController < ApplicationController
    end
   def new_search
 	  @count = Article.count
+	  render :layout => false
   end
 
 
