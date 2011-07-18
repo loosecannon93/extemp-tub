@@ -35,6 +35,7 @@ namespace :add_content do
     	      is_reuters = true
     	    end
           next unless docid
+          next if docid == "MSNBC-0"
           if Article.find_by_docid(docid)
             STDERR.puts "#{index} of #{total} for #{day} : ERROR article #{docid} already in database"
             next 
