@@ -205,3 +205,99 @@ input.sidebar_item
 	
 }
 
+/*#hnav li
+{
+	display: inline-block;
+}
+.horiz-sidebar
+{
+	display: inline-block;
+	width:200px;
+	
+}*/
+/*#navbar
+{
+	position:a;
+	top:0;
+	margin-top:0;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#000000;
+	border: 2px solid black;
+	
+}
+#navbar ul { 
+margin: 0; 
+padding: 0px; /* Set margin and padding for cross browser consistency. */ 
+/*list-style-type: none; /* Needed to eliminate list item marker */ 
+/*text-align: center; /* Centers navigation bar */ 
+/*background-color: #21b600; /* Set as desired */ 
+/*} 
+
+#navbar ul li { 
+display: inline; /* Needed to create horizontal effect */ 
+/*font-weight:bold;
+color:#FFFFFF;
+background-color:#21b600;
+width:175px;
+text-align:center;
+padding:0;
+text-decoration:none;
+text-transform:uppercase;
+
+margin:0;
+padding:4px;
+    font-size: 18px;
+} 
+
+#navbar ul li a:link,#navbar ul li a:visited { 
+font-weight:bold;
+color:#FFFFFF;
+background-color:#157a00;
+width:175px;
+text-align:center;
+padding:4px;
+text-decoration:none;
+text-transform:uppercase;
+} 
+
+#navbar ul li a:hover,#navbar ul li a:active { 
+{
+	background-color:#174f0b;
+} */
+#navbar
+{
+	margin-top:0;
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;	
+}
+#navbar ul { 
+margin: 0; 
+padding: 5px; /* Set margin and padding for cross browser consistency. */ 
+list-style-type: none; /* Needed to eliminate list item marker */ 
+text-align: center; /* Centers navigation bar */ 
+background-color: #000; /* Set as desired */ 
+} 
+
+#navbar ul li { 
+display: inline; /* Needed to create horizontal effect */ 
+padding:3px;
+text-decoration: none;
+text-transform:uppercase;
+font-size:medium;
+font-weight:bold;
+} 
+
+#navbar ul li a { 
+text-decoration: none; /* The setting of "none" allows the link to not be underlined. This is up to user preference. */ 
+padding: .2em 1em; /* Gives the link space inside it's individual block. */ 
+color: #fff; /* Set as desired */ 
+background-color: #000; /* Set as desired */ 
+} 
+
+#navbar ul li a:hover { 
+color: #000; 
+background-color: #fff; /* Both of these values create the "Rollover effect, Set as desired */ 
+} 

@@ -9,8 +9,16 @@
   
 </head>
 <body class="new_search">
-
-<p style="color: green;position: fixed;top:5px; left:5px;"><%= notice %></p>
+ <div id='navbar'>
+ 	<ul>
+	    <li> Navigation </li>
+	    <li><%= link_to 'My Account', account_url , :class => 'horiz-sidebar' %></li>
+	    <li><%= link_to 'Users', users_url , :class => 'horiz-sidebar' %></li> 
+	    <li><%= link_to 'Sites', sites_url , :class => 'horiz-sidebar' %></li>
+	    <li><%= link_to 'Articles', articles_url , :class => 'horiz-sidebar' %></li> 
+    </ul>
+  </div>
+<p style="color: green;position: fixed;top:0px; left:0px;margin:6;padding:1;"><%= notice %></p>
 
 
 <!--<h2> Lafayette High Extemp Database </h2>-->
